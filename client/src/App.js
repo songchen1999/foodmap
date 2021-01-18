@@ -1,9 +1,22 @@
 import './App.css';
+import React from 'react'
 import { VectorMap } from '@south-paw/react-vector-maps';
 import usa from './map/usa.json';
 import styled from 'styled-components'
 
 function App() {
+
+  const [selected, setSelected] = React.useState([]);
+
+  const onClick = ({ target }) => {
+    const id = target.attributes.id.value;
+
+    // If selected includes the id already, remove it - otherwise add it
+    selected.includes(id)
+      ? setSelected(selected.filter(sid => sid !== id))
+      : setSelected([...selected, id]);
+  }
+
   const Map = styled.div`
   margin: 1rem auto;
   width: 1000px;
@@ -46,9 +59,15 @@ function App() {
 `;
   
   return (
-    <Map>
-    <VectorMap {...usa} />
-    </Map>
+    <div>
+      <Map>
+        <VectorMap {...usa} layerProps={{ onClick }}/>
+      </Map>
+      <hr />
+      <p>Selected:</p>
+      <pre>{JSON.stringify(selected,null,2)}</pre>
+    </div>
+    
   );
   
 }
