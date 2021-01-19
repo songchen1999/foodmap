@@ -18,7 +18,7 @@ function Map() {
 
   const Map = styled.div`
   margin: 1rem auto;
-  width: 1000px;
+  width: 80%;
 
   svg {
     stroke: #fff;
@@ -62,9 +62,6 @@ function Map() {
       <Map>
         <VectorMap {...usa} layerProps={{ onClick }}/>
       </Map>
-      <hr />
-      <p>Selected:</p>
-      <pre>{JSON.stringify(selected,null,2)}</pre>
     </div>
     
   );
