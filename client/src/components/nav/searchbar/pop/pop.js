@@ -18,21 +18,10 @@ import {
       <div>
         <div onClick={onOpen}>{props.bar}</div>
   
-        <Modal isOpen={isOpen} onClose={onClose}>
+        <Modal isOpen={isOpen} onClose={onClose} isCentered size="3xl" >
           <ModalOverlay />
           <ModalContent>
-            <ModalHeader>Modal Title</ModalHeader>
-            <ModalCloseButton />
-            <ModalBody>
-              
-            </ModalBody>
-  
-            <ModalFooter>
-              <Button colorScheme="blue" mr={3} onClick={onClose}>
-                Close
-              </Button>
-              <Button variant="ghost">Secondary Action</Button>
-            </ModalFooter>
+            {props.popBar}
           </ModalContent>
         </Modal>
       </div>

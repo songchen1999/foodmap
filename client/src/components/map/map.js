@@ -1,7 +1,8 @@
 import React from 'react'
 import { VectorMap } from '@south-paw/react-vector-maps';
-import usa from '../map/usa.json';
-import styled from 'styled-components'
+import usa from '../../map/usa.json';
+import styled from 'styled-components';
+import Toolip from './toolip/toolip'
 
 function Map() {
 
@@ -59,9 +60,7 @@ function Map() {
   
   return (
     <div>
-      <Map>
-        <VectorMap {...usa} layerProps={{ onClick }}/>
-      </Map>
+      <Toolip map={usa}/>
     </div>
     
   );
